@@ -1,0 +1,41 @@
+﻿<Window x:Class="WPFAppShell.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WPFAppShell"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800"
+        d:DataContext="{d:DesignInstance local:MainViewModel}">
+    
+    <DockPanel>
+		<Menu DockPanel.Dock="Top">
+			<MenuItem Header="File"/>
+			<MenuItem Header="Windows"/>
+			<MenuItem Header="About"/>
+		</Menu>
+        
+        <!-- for testing -->
+        <TextBlock Text="{Binding BindingTest}" DockPanel.Dock="Top"/>
+        
+        <!-- Left Pane Menu-->
+        <ListBox ItemsSource="{Binding AppSpecificCommands}"
+                 SelectedItem="{Binding SelectedAppSpecificCommandOption}"
+                 DockPanel.Dock="Left"
+                 MinWidth="100">
+			<ListBox.ItemTemplate>
+				<DataTemplate>
+					<TextBlock Text="{Binding Name}" />
+				</DataTemplate>
+			</ListBox.ItemTemplate>
+		</ListBox>
+
+		<StackPanel DockPanel.Dock="Bottom">
+			<Button Content="Add" Command="{Binding AddCommand}"/>
+			<Button Content="Execute" Command="{Binding ExecuteAppSpecificCommands}"/>
+		</StackPanel>
+
+		<ListBox ItemsSource="{Binding AppSpecificCommands}"/>
+
+	</DockPanel>
+</Window>

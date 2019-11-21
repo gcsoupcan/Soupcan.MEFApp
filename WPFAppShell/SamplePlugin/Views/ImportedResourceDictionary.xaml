@@ -1,0 +1,16 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+					xmlns:viewModel="clr-namespace:SamplePlugin.ViewModels"
+                    x:Class="WpfApp2MEF.View.ImportedResourceDictionary"					
+                    x:ClassModifier="public">
+
+	<DataTemplate DataType="{x:Type viewModel:IncrementCommandViewModel}">
+		<StackPanel>
+			<TextBlock Text="Value"/>
+			<TextBox Text="{Binding Value}"/>
+			<TextBlock Text="Increment"/>
+			<TextBox Text="{Binding Increment}"/>
+		</StackPanel>
+	</DataTemplate>
+
+</ResourceDictionary>
