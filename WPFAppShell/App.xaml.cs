@@ -41,15 +41,21 @@ namespace WPFAppShell
 
 
 		private void SetupCompositionContainer()
-		{
-			// MEF Container stuff
-			var catalog = new AggregateCatalog();
+        {
+            // MEF Container stuff
+            AggregateCatalog catalog = CreateCatalog();
+            _container = new CompositionContainer(catalog);
+            _container.ComposeParts(this);
+        }
 
-			catalog.Catalogs.Add(new AssemblyCatalog(typeof(App).Assembly));
-			string appLocation = System.IO.Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
-			catalog.Catalogs.Add(new DirectoryCatalog(appLocation));
-			_container = new CompositionContainer(catalog);            
-			_container.ComposeParts(this);
-		}
-	}
+        private static AggregateCatalog CreateCatalog()
+        {
+            var catalog = new AggregateCatalog();
+
+            catalog.Catalogs.Add(new AssemblyCatalog(typeof(App).Assembly));
+            string appLocation = System.IO.Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
+            catalog.Catalogs.Add(new DirectoryCatalog(appLocation));
+            return catalog;
+        }
+    }
 }
