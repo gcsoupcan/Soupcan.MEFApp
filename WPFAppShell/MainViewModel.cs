@@ -17,19 +17,19 @@ namespace WPFAppShell
         [ImportMany(typeof(IAppSpecificCommand))]
 		public ObservableCollection<IAppSpecificCommand> AppSpecificCommands { get; private set; }
 
-		public IAppSpecificCommand SelectedAppSpecificCommandOption
+		public IAppSpecificCommand SelectedAppSpecificCommand
         {
-            get { return _selectedAppSpecificCommandOption; }
+            get { return _selectedAppSpecificCommand; }
             set
             {
-                if (_selectedAppSpecificCommandOption != value)
+                if (_selectedAppSpecificCommand != value)
                 {
-                    _selectedAppSpecificCommandOption = value;
-                    RaisePropertyChanged(nameof(SelectedAppSpecificCommandOption));
+                    _selectedAppSpecificCommand = value;
+                    RaisePropertyChanged(nameof(SelectedAppSpecificCommand));
                 }
             }
         }
-        IAppSpecificCommand _selectedAppSpecificCommandOption;
+        IAppSpecificCommand _selectedAppSpecificCommand;
 
         public MainViewModel()
         {

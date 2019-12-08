@@ -60,6 +60,9 @@
     <Compile Include="SamplePlugin\Views\ImportedResourceDictionary.xaml.cs">
       <DependentUpon>ImportedResourceDictionary.xaml</DependentUpon>
     </Compile>
+    <Compile Include="SamplePlugin\Views\IncrementCommandView.xaml.cs">
+      <DependentUpon>IncrementCommandView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ViewModelBase.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -78,6 +81,10 @@
     <Page Include="SamplePlugin\Views\ImportedResourceDictionary.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="SamplePlugin\Views\IncrementCommandView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <ItemGroup>

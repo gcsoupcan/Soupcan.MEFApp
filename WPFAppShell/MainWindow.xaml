@@ -14,13 +14,15 @@
 			<MenuItem Header="Windows"/>
 			<MenuItem Header="About"/>
 		</Menu>
-        
+
+        <!-- Top Pane -->
         <!-- for testing -->
-        <TextBlock Text="{Binding BindingTest}" DockPanel.Dock="Top"/>
+        <!--<TextBlock Text="{Binding BindingTest}" DockPanel.Dock="Top"/>-->
         
-        <!-- Left Pane Menu-->
-        <ListBox ItemsSource="{Binding AppSpecificCommands}"
-                 SelectedItem="{Binding SelectedAppSpecificCommandOption}"
+        <!-- Left Pane Menu -->
+        <ListBox x:Name="MainWindowListBox"
+            ItemsSource="{Binding AppSpecificCommands}"
+                 SelectedItem="{Binding SelectedAppSpecificCommand}"
                  DockPanel.Dock="Left"
                  MinWidth="100">
 			<ListBox.ItemTemplate>
@@ -30,12 +32,14 @@
 			</ListBox.ItemTemplate>
 		</ListBox>
 
-		<StackPanel DockPanel.Dock="Bottom">
+        <!-- Bottom Pane -->
+        <StackPanel DockPanel.Dock="Bottom">
 			<Button Content="Add" Command="{Binding AddCommand}"/>
 			<Button Content="Execute" Command="{Binding ExecuteAppSpecificCommands}"/>
 		</StackPanel>
 
-		<ListBox ItemsSource="{Binding AppSpecificCommands}"/>
+        <!-- Fill -->
+        <ContentControl Content="{Binding SelectedAppSpecificCommand}"/>
 
-	</DockPanel>
+    </DockPanel>
 </Window>

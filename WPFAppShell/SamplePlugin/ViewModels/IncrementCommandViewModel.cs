@@ -10,7 +10,7 @@ namespace SamplePlugin.ViewModels
 {
 	public class IncrementCommandViewModel : IAppSpecificCommand
 	{
-		public string Name { get { return "HI" + nameof(IncrementCommandViewModel); } }
+		public string Name { get { return "Increment A Number"; } }
 
 		public int Value { get; set; }
 
