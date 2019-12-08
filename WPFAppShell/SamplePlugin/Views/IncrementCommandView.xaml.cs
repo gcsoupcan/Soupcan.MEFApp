@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace WPFAppShell.SamplePlugin.Views
+namespace SamplePlugin.Views
 {
     /// <summary>
     /// Interaction logic for IncrementCommandView.xaml
